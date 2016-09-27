@@ -1,0 +1,45 @@
+﻿1.新增一个远程仓库：git remote add (远程仓库名称) (url)
+git remote add mygitlab http://123.56.234.251/WebApp/HexStudyEditor.git
+2.查看远程仓库：git remote
+3.拉取某个远程仓库的某个分支，：git pull (远程仓库名称) (分支名称)
+git pull mygitlab Release
+注意：拉取之前本地分支一定要和远程分支名称一致，否则两个分支不一样会自动合并
+
+4.git reset和git checkout
+
+(执行命令，三个区的变化)
+			 HEAD	Index	Workdir	WD Safe?
+Commit Level
+
+reset --soft [commit]    REF     NO      NO      YES
+
+reset [commit]           REF     YES     NO      YES
+
+reset --hard [commit]    REF     YES     YES     NO
+
+checkout [commit]        HEAD    YES     YES     YES
+
+
+File Level
+
+reset (commit) [file]    NO      YES     NO      YES
+
+checkout (commit) [file] NO      YES     YES     NO
+
+撤销最新commit的某个文件到工作目录:
+git checkout f08b42d1abcdf1c92ce31cecd86835ace93d2784 1.txt
+
+4.1撤销某个commit: git reset --hard f5f6834a06d15f2ce254ee919d2cef0975a2dfa8
+
+5.创建分支 git checkout -b (分支名称，注意区分大小写)
+6.切换(签出)分支 git checkout (分支名称，注意区分大小写)
+7.分支合并,检出到你想合并入的分支，然后运行 git merge 命令，
+比如想把Release分支合并到master分支，先签出master，然后git merge
+git checkout master
+git merge Release
+8.删除本地分支 git branch -d [分支名称]
+9.删除远程分支 git push origin --delete [分支名称]
+10.从一个远程跟踪分支检出一个本地分支会自动创建一个叫做 “跟踪分支”：
+git checkout --track [远程仓库名称/分支名称]
+例如把远程仓库（名称是gitlab）的dev分支签出本地,git checkout --track gitlab/dev
+11.从本地创建一个远程分支（git push -u/--set-upstream (远程仓库名称) (分支名称)）:git push --set-upstream origin master
