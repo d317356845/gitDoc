@@ -44,3 +44,4 @@ git checkout --track [远程仓库名称/分支名称]
 例如把远程仓库（名称是gitlab）的dev分支签出本地,git checkout --track gitlab/dev
 11.从本地创建一个远程分支（git push -u/--set-upstream (远程仓库名称) (分支名称)）:git push --set-upstream origin master
 12.签出tag的代码 git checkout [标签名称]:git checkout 2.11.3
+13.linux下使用git客户端:qgit
